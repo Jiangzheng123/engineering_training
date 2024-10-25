@@ -101,5 +101,18 @@ create table log
     comment '系统日志表';
 
 // 公告表暂不创建
+
+// 创建评论表
+create table comment
+(
+    id           int auto_increment comment '主键'
+        primary key,
+    name         varchar(20)                         not null comment '评论人昵称',
+    email        varchar(30)                         not null comment '评论人邮箱',
+    content      varchar(100)                        not null comment '评论内容',
+    reply_id     int       default 0                 not null comment '回复的评论id，0表示不是回复',
+    created_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间，由MySQL自动填充即可'
+)
+    comment '评论表';
 ```
 
